@@ -688,6 +688,112 @@
     margin: 0.75rem 0 0.5rem;
 }
 
+/* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.news-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.12);
+}
+
+.news-card-featured {
+    grid-column: span 3;
+    flex-direction: row;
+}
+
+.news-card-featured .news-image {
+    flex: 1;
+    min-height: 280px;
+}
+
+.news-card-featured .news-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news-card-featured .news-content h3 {
+    font-size: 1.6rem;
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.04);
+}
+
+.news-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #D4A437;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.news-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.news-content p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.news-link {
+    color: #8B1E1E;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .mvv-grid, .scholarship-grid, .chapters-cards { grid-template-columns: repeat(2, 1fr); }
@@ -697,6 +803,8 @@
     .donate-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
     .leader-card { grid-template-columns: 200px 1fr; gap: 2rem; }
     .president-message-full { grid-template-columns: 220px 1fr; gap: 2rem; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-card-featured { grid-column: span 2; }
 }
 
 @media (max-width: 768px) {
@@ -711,4 +819,7 @@
     .donation-amounts { grid-template-columns: repeat(2, 1fr); }
     .form-row { grid-template-columns: 1fr; }
     .scholarship-card.featured { transform: none; }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-card-featured { grid-column: span 1; flex-direction: column; }
+    .news-card-featured .news-image { min-height: 200px; }
 }

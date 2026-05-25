@@ -37,28 +37,28 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // Active nav link on scroll
+    // Active nav link on scroll — only on homepage (anchor-based nav)
+    const isHomePage = window.location.pathname === '/' ||
+        window.location.pathname.endsWith('index.html') ||
+        window.location.pathname.endsWith('/');
     const sections = document.querySelectorAll('section[id]');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
+    if (isHomePage && sections.length > 0) {
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                if (pageYOffset >= section.offsetTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
-    });
+    }
 
     // Testimonial Slider
     const testimonialCards = document.querySelectorAll('.testimonial-card');
@@ -271,4 +271,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 30);
     }
+
+    // Donate amount button toggle
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const customAmountInput = document.getElementById('customAmount');
+    amountBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            amountBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            if (customAmountInput) customAmountInput.value = '';
+        });
+    });
+    if (customAmountInput) {
+        customAmountInput.addEventListener('input', function() {
+            if (this.value) amountBtns.forEach(b => b.classList.remove('active'));
+        });
+    }
+
+    // Lazy-load all images that don't already have loading attribute
+    document.querySelectorAll('img:not([loading])').forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
 });

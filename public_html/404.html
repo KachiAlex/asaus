@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | ASA-USA</title>
+    <meta name="description" content="The page you are looking for could not be found.">
+    <link rel="icon" href="images/ASA-USA Logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5EFE4;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-content { max-width: 560px; }
+        .error-logo { margin: 0 auto 2rem; }
+        .error-logo img { height: 80px; width: auto; }
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: 700;
+            color: #8B1E1E;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        .error-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+        .error-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .error-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-home {
+            background: #8B1E1E;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-home:hover { background: #6e1818; }
+        .btn-back {
+            border: 2px solid #8B1E1E;
+            color: #8B1E1E;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            background: transparent;
+            transition: all 0.2s;
+        }
+        .btn-back:hover { background: #8B1E1E; color: #fff; }
+        .error-divider {
+            width: 60px;
+            height: 3px;
+            background: #D4A437;
+            margin: 1rem auto 1.5rem;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-logo">
+                <a href="index.html"><img src="images/ASA-USA Logo.jpg" alt="ASA-USA Logo"></a>
+            </div>
+            <div class="error-code">404</div>
+            <div class="error-divider"></div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-text">The page you are looking for may have been moved, renamed, or no longer exists. Let's get you back to the right place.</p>
+            <div class="error-actions">
+                <a href="index.html" class="btn-home">Go to Homepage</a>
+                <a href="javascript:history.back()" class="btn-back">Go Back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
