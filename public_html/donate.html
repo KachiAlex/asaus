@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | ASA-USA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">ASA</div>
+                <div class="logo-text"><span class="logo-main">ASA-USA</span><span class="logo-sub">Anambra State Association</span></div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li><a href="programs.html" class="nav-link">Programs &amp; Impact</a></li>
+                <li><a href="scholarships.html" class="nav-link">Scholarships</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="chapters.html" class="nav-link">Chapters</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="donate.html" class="nav-link nav-cta active">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero" style="background-image:url('images/community.jpg')">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <span class="section-label">Give Back</span>
+            <h1>Support ASA-USA</h1>
+            <p>Your generosity powers scholarships, outreach, and community development for thousands of lives.</p>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="donate-grid">
+                <div class="donate-info">
+                    <h2 class="section-title">Help Us Create Greater Impact</h2>
+                    <p>Every dollar donated to ASA-USA goes directly toward programs that change lives — from scholarships that help students achieve their dreams, to medical missions serving thousands in Anambra State.</p>
+                    <div class="donate-impact-list">
+                        <div class="donate-impact-item"><span class="impact-amount">$50</span><span>Provides school supplies for 5 students</span></div>
+                        <div class="donate-impact-item"><span class="impact-amount">$100</span><span>Funds a medical consultation at a health mission</span></div>
+                        <div class="donate-impact-item"><span class="impact-amount">$500</span><span>Contributes toward one scholarship award</span></div>
+                        <div class="donate-impact-item"><span class="impact-amount">$1,000</span><span>Sponsors a youth leadership workshop</span></div>
+                        <div class="donate-impact-item"><span class="impact-amount">$5,000</span><span>Funds a full medical mission day</span></div>
+                    </div>
+                </div>
+                <div class="donate-form-wrap">
+                    <div class="donate-form">
+                        <h3>Make a Donation</h3>
+                        <div class="donation-amounts">
+                            <button class="amount-btn" data-amount="25">$25</button>
+                            <button class="amount-btn active" data-amount="50">$50</button>
+                            <button class="amount-btn" data-amount="100">$100</button>
+                            <button class="amount-btn" data-amount="250">$250</button>
+                            <button class="amount-btn" data-amount="500">$500</button>
+                            <button class="amount-btn" data-amount="1000">$1,000</button>
+                        </div>
+                        <div class="form-group" style="margin-top:1rem">
+                            <label for="customAmount">Or enter a custom amount ($)</label>
+                            <input type="number" id="customAmount" name="customAmount" placeholder="Enter amount" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="donationType">Donation Type</label>
+                            <select id="donationType" name="donationType">
+                                <option>One-time Donation</option>
+                                <option>Monthly Recurring</option>
+                                <option>Annual Pledge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="donationFor">Designate My Gift To</label>
+                            <select id="donationFor" name="donationFor">
+                                <option>Where Most Needed</option>
+                                <option>Scholarship Fund</option>
+                                <option>Health Outreach</option>
+                                <option>Youth Programs</option>
+                                <option>Cultural Preservation</option>
+                                <option>Community Development</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="donorFirst">First Name</label><input type="text" id="donorFirst" placeholder="First name" required></div>
+                            <div class="form-group"><label for="donorLast">Last Name</label><input type="text" id="donorLast" placeholder="Last name" required></div>
+                        </div>
+                        <div class="form-group"><label for="donorEmail">Email</label><input type="email" id="donorEmail" placeholder="your@email.com" required></div>
+                        <button type="button" class="btn btn-primary" style="width:100%;margin-top:0.5rem">Proceed to Secure Payment</button>
+                        <p class="donate-secure-note">🔒 Secure &amp; encrypted. ASA-USA is a registered non-profit organization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section bg-cream">
+        <div class="container" style="text-align:center">
+            <h2 class="section-title">Other Ways to Give</h2>
+            <div class="other-ways-grid">
+                <div class="other-way-card"><div class="mvv-icon">🤝</div><h3>Corporate Partnership</h3><p>Partner with ASA-USA to support our programs and gain visibility within the Anambra community across the USA.</p><a href="contact.html" class="btn btn-outline" style="margin-top:1rem">Contact Us</a></div>
+                <div class="other-way-card"><div class="mvv-icon">🎁</div><h3>In-Kind Donations</h3><p>Donate goods, services, or professional expertise to support our outreach and community programs.</p><a href="contact.html" class="btn btn-outline" style="margin-top:1rem">Learn More</a></div>
+                <div class="other-way-card"><div class="mvv-icon">📋</div><h3>Legacy Giving</h3><p>Leave a lasting impact by including ASA-USA in your estate planning and ensure your legacy lives on.</p><a href="contact.html" class="btn btn-outline" style="margin-top:1rem">Learn More</a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-main"><div class="container"><div class="footer-grid">
+            <div class="footer-brand"><div class="logo"><div class="logo-icon">ASA</div><div class="logo-text"><span class="logo-main">ASA-USA</span><span class="logo-sub">Anambra State Association</span></div></div><p>Uniting Ndi Anambra across America.</p></div>
+            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="about.html">About Us</a></li><li><a href="donate.html">Donate</a></li><li><a href="programs.html">Programs</a></li><li><a href="events.html">Events</a></li></ul></div>
+            <div class="footer-links"><h4>Get Involved</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Partner With Us</a></li></ul></div>
+            <div class="footer-contact"><h4>Contact Us</h4><p><a href="mailto:info@asa-usa.org">info@asa-usa.org</a></p><p><a href="tel:+17135550123">(713) 555-0123</a></p></div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container"><p>&copy; 2025 ASA-USA. All rights reserved.</p></div></div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
