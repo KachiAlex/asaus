@@ -185,6 +185,62 @@
     color: #666;
 }
 
+/* Board of Directors Grid */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.board-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.board-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.12);
+}
+
+.board-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.board-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.board-info {
+    padding: 1.25rem 1rem;
+}
+
+.board-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #222;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+}
+
+.board-info p {
+    font-size: 0.82rem;
+    color: #8B1E1E;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 /* President Message Full */
 .president-message-full {
     display: grid;
@@ -805,6 +861,7 @@
     .president-message-full { grid-template-columns: 220px 1fr; gap: 2rem; }
     .news-grid { grid-template-columns: repeat(2, 1fr); }
     .news-card-featured { grid-column: span 2; }
+    .board-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -822,4 +879,5 @@
     .news-grid { grid-template-columns: 1fr; }
     .news-card-featured { grid-column: span 1; flex-direction: column; }
     .news-card-featured .news-image { min-height: 200px; }
+    .board-grid { grid-template-columns: 1fr; }
 }
