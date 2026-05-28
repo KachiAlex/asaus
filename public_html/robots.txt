@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asa-usa.org/sitemap.xml

@@ -1,3 +1,35 @@
+/* Skip Link (Accessibility) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #8B1E1E;
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 10000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 0 0 4px 0;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid #D4A437;
+    outline-offset: 2px;
+}
+
+/* Focus indicators (Accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #D4A437;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
 /* ==========================================
    ASA-USA Website Styles
    Color Palette:
