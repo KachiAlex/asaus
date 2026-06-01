@@ -834,6 +834,26 @@ h1, h2, h3, h4 {
     margin-top: 3rem;
 }
 
+.event-card.past {
+    background: #F5EFE4;
+    border-left: 4px solid #888;
+    opacity: 0.85;
+}
+
+.event-card.past .event-date.past-date {
+    background: #e0d9ce;
+    min-width: 60px;
+}
+
+.event-card.past .event-day {
+    font-size: 1.4rem;
+    color: #555;
+}
+
+.event-tag.past-tag {
+    background: #888;
+}
+
 /* Gallery Section */
 .gallery {
     padding: 6rem 0;
