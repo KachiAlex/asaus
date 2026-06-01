@@ -146,6 +146,48 @@
     margin-bottom: 1rem;
 }
 
+.chairman-note {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.chairman-note-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.chairman-note-profile {
+    text-align: center;
+}
+
+.chairman-note-profile img {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 240px;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.chairman-note-profile p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.chairman-note-profile span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
 .officers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
