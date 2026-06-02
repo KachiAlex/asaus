@@ -1019,6 +1019,12 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    justify-content: center;
+}
+
+.sponsor-card.gold-sponsor {
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 .sponsor-card {
