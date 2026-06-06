@@ -6,18 +6,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     const navLinks = navMenu ? navMenu.querySelectorAll('.nav-link') : [];
 
+    let navOverlay = null;
     if (mobileToggle && navMenu) {
+        // Create overlay dynamically
+        navOverlay = document.createElement('div');
+        navOverlay.className = 'nav-overlay';
+        document.body.appendChild(navOverlay);
+
+        function openMenu() {
+            navMenu.classList.add('active');
+            mobileToggle.classList.add('active');
+            navOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeMenu);
+        }
 
         // Close mobile menu when clicking a link
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
+                closeMenu();
             });
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
         });
     }
 
@@ -81,10 +114,50 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Auto-advance testimonials
-    setInterval(function() {
+    let testimonialInterval = setInterval(function() {
         currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
         showTestimonial(currentTestimonial);
     }, 6000);
+
+    // Touch swipe support for testimonials
+    const testimonialsSlider = document.querySelector('.testimonials-slider');
+    if (testimonialsSlider && testimonialCards.length > 1) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        testimonialsSlider.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        testimonialsSlider.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50;
+            if (touchEndX < touchStartX - threshold) {
+                // Swipe left -> next
+                currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+                showTestimonial(currentTestimonial);
+                resetInterval();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swipe right -> prev
+                currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+                showTestimonial(currentTestimonial);
+                resetInterval();
+            }
+        }
+
+        function resetInterval() {
+            clearInterval(testimonialInterval);
+            testimonialInterval = setInterval(function() {
+                currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+                showTestimonial(currentTestimonial);
+            }, 6000);
+        }
+    }
 
     // Gallery Filter
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -197,13 +270,35 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowRight') lightboxNext.click();
     });
 
+    // Touch swipe support for lightbox
+    if (lightbox) {
+        let lbTouchStartX = 0;
+        let lbTouchEndX = 0;
+
+        lightbox.addEventListener('touchstart', function(e) {
+            lbTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', function(e) {
+            lbTouchEndX = e.changedTouches[0].screenX;
+            if (!lightbox.classList.contains('active')) return;
+            const threshold = 60;
+            if (lbTouchEndX < lbTouchStartX - threshold) {
+                lightboxNext.click();
+            } else if (lbTouchEndX > lbTouchStartX + threshold) {
+                lightboxPrev.click();
+            }
+        }, { passive: true });
+    }
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const offsetTop = target.offsetTop - 70;
+                const navHeight = navbar ? navbar.offsetHeight : 70;
+                const offsetTop = target.offsetTop - navHeight;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
