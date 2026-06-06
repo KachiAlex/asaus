@@ -1689,7 +1689,7 @@ h1, h2, h3, h4 {
     .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
     .hero { min-height: auto; padding: 6rem 0 3rem; }
-    .hero-content { padding-top: 0; }
+    .hero-content { padding-top: 0; z-index: 0; }
     .hero-title { font-size: clamp(1.3rem, 6vw, 2rem); white-space: normal; }
     .hero-subtitle { font-size: 0.95rem; margin-bottom: 1.75rem; }
     .hero-ctas { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto 2.5rem; }
