@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
             navOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeMenu() {
             navMenu.classList.remove('active');
             mobileToggle.classList.remove('active');
