@@ -1652,6 +1652,7 @@ h1, h2, h3, h4 {
         box-shadow: -10px 0 40px rgba(0,0,0,0.15);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        z-index: 1001;
     }
 
     .nav-menu.active {
