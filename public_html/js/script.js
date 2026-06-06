@@ -95,32 +95,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Testimonial Slider
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.dot');
-    let currentTestimonial = 0;
 
-    function showTestimonial(index) {
-        testimonialCards.forEach(card => card.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        testimonialCards[index].classList.add('active');
-        dots[index].classList.add('active');
-    }
+    if (testimonialCards.length > 0 && dots.length > 0) {
+        let currentTestimonial = 0;
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            currentTestimonial = index;
-            showTestimonial(currentTestimonial);
+        function showTestimonial(index) {
+            testimonialCards.forEach(card => card.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            testimonialCards[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
         });
-    });
 
-    // Auto-advance testimonials
-    let testimonialInterval = setInterval(function() {
-        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-        showTestimonial(currentTestimonial);
-    }, 6000);
+        // Auto-advance testimonials
+        let testimonialInterval = setInterval(function() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
+        }, 6000);
 
-    // Touch swipe support for testimonials
-    const testimonialsSlider = document.querySelector('.testimonials-slider');
-    if (testimonialsSlider && testimonialCards.length > 1) {
+        // Touch swipe support for testimonials
+        const testimonialsSlider = document.querySelector('.testimonials-slider');
+        if (testimonialsSlider && testimonialCards.length > 1) {
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -156,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showTestimonial(currentTestimonial);
             }, 6000);
         }
+    }
     }
 
     // Gallery Filter
